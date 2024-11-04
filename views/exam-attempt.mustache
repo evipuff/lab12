@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Attempt Details</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height for centering */
+            margin: 0; /* Remove default margin */
+            background-color: #fce4ec; /* Light pink background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .main__container {
+            width: 100%;
+            max-width: 800px;
+            padding: 30px;
+            background: #ffffff; /* White container */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            box-sizing: border-box; /* Ensure padding doesn’t affect width */
+        }
+        h2 {
+            color: #d81b60; /* Dark pink for headings */
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        .details {
+            text-align: left;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #f8bbd0; /* Light pink border */
+            padding-bottom: 15px;
+        }
+        .details p {
+            font-size: 1.1em;
+            color: #333;
+            margin: 5px 0;
+        }
+        .questions {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .question {
+            background: #fff3f6; /* Light pink for questions */
+            border: 1px solid #f48fb1; /* Soft pink border */
+            border-radius: 10px; /* Rounded corners */
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+        .choices {
+            margin-top: 10px;
+        }
+        .choice {
+            padding: 10px;
+            border-radius: 10px; /* Rounded choices */
+            margin: 3px 0;
+            transition: background-color 0.2s;
+        }
+        .user-answer {
+            background-color: #ffeb3b; /* Yellow for user-selected answers */
+            font-weight: bold;
+        }
+        .correct-answer {
+            background-color: #c8e6c9; /* Light green for correct answers */
+            font-weight: bold;
+        }
+        .score {
+            font-weight: bold;
+            color: #d81b60; /* Dark pink for scores */
+            margin-top: 10px;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #d81b60; /* Dark pink button */
+            color: white;
+            border-radius: 25px; /* Fully rounded button */
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .back-btn:hover {
+            background-color: #c2185b; /* Darker pink on hover */
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="main__container">
+        <h2>Exam Attempt Details</h2>
+
+        <div class="details">
+            <p><strong>Examinee Name:</strong> {{ complete_name }}</p>
+            <p><strong>Email:</strong> {{ email }}</p>
+            <p><strong>Exam Attempt Date:</strong> {{ attempt_date }}</p>
+            <p class="score"><strong>Total Score:</strong> {{ total_score }}</p>
+        </div>
+
+        <div class="questions">
+            <h3>Questions and Answers</h3>
+            {{#questions}}
+                <div class="question">
+                    <p><strong>Question:</strong> {{ question }}</p>
+                    <div class="choices">
+                        {{#choices}}
+                            <div class="choice {{#is_user_answer}}user-answer{{/is_user_answer}} {{#is_correct}}correct-answer{{/is_correct}}">
+                                <span>{{ letter }}. {{ choice }}</span>
+                            </div>
+                        {{/choices}}
+                        <p><strong>Your Answer:</strong> {{ user_answer }} <br>
+                        <strong>Correct Answer:</strong> {{ correct_answer }}</p>
+                    </div>
+                </div>
+            {{/questions}}
+        </div>
+
+        <a href="/examinees" class="back-btn">Back to Examinees</a>
+    </div>
+</body>
+</html>

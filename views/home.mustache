@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+            background-color: #fce4ec; /* Light pink background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .main__container {
+            width: 90vw;
+            max-width: 800px;
+            padding: 30px;
+            background-color: #ffffff; /* White container */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h2 {
+            color: #d81b60; /* Dark pink for headings */
+            margin-bottom: 20px;
+            font-size: 2.5em; /* Larger font size for emphasis */
+        }
+        a {
+            display: inline-block;
+            margin-top: 30px; /* Spacing for better aesthetics */
+            padding: 12px 20px;
+            background-color: #d81b60; /* Dark pink for the button */
+            color: white;
+            border-radius: 10px; /* Rounded button */
+            text-decoration: none;
+            font-size: 18px; /* Slightly larger font size */
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        a:hover {
+            background-color: #c2185b; /* Darker pink on hover */
+            transform: translateY(-2px);
+        }
+    </style>
+
+</head>
+<body>
+    <div class="main__container">
+        <h2>Welcome to the Exam Portal</h2>
+        <a href="/register">Click here to register for the exam</a>
+    </div>
+</body>
+</html>
